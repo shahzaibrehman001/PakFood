@@ -1,0 +1,26 @@
+<header>
+  <div class="container">
+    <img src="assets\webLogo.png" class="brandlogo" alt="" routerLink="/">
+    <a routerLink="/" class="logo"></a>
+    <nav>
+      <ul>
+        <li *ngIf="!isAuth">
+          <a routerLink="/login"><i class="fa-solid fa-user fa-lg"></i> Login</a>
+        </li>
+        <li *ngIf="isAuth" class="menu-container">
+          <a routerLink="/dashboard">{{user.name}}</a>
+          <div class="menu">
+            <a routerLink="/profile">Profile</a>
+            <a routerLink="/orders">Orders</a>
+            <a (click)="logout()">Logout</a>
+          </div>
+        </li>
+        <li>
+          <a routerLink="/cart-page">
+            <i class="fa-solid fa-cart-shopping fa-lg"></i>  <span class="qty" *ngIf="cartQuantity">{{cartQuantity}}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
