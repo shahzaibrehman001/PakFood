@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   foods: Food[] = [];
   constructor(private foodService: FoodService, activatedRoute: ActivatedRoute) {
-    let foodsObservalbe:Observable<Food[]>;
+    let foodsObservalbe: Observable<Food[]>;
     activatedRoute.params.subscribe((params) => {
       if (params.searchTerm)
         foodsObservalbe = this.foodService.getAllFoodsBySearchTerm(params.searchTerm);
@@ -22,9 +22,9 @@ export class HomeComponent implements OnInit {
       else
         foodsObservalbe = foodService.getAll();
 
-        foodsObservalbe.subscribe((serverFoods) => {
-          this.foods = serverFoods;
-        })
+      foodsObservalbe.subscribe((serverFoods) => {
+        this.foods = serverFoods;
+      })
     })
   }
 
